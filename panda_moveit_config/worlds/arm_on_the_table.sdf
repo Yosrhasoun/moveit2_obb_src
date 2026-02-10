@@ -1,0 +1,85 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <world name="arm_and_table">
+
+    <physics name="1ms" type="ode">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+
+    <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics"/>
+    <plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands"/>
+    <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster"/>
+
+    <scene>
+      <shadows>false</shadows>
+    </scene>
+
+    <gui>
+      <camera name="user_camera">
+        <pose>1.5 -1.5 1.5 0 0.4 2.3</pose>
+      </camera>
+    </gui>
+
+    <light type="directional" name="sun">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+
+    <model name="ground_plane">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- table -->
+    <include>
+      <uri>model://table</uri>
+      <name>table</name>
+      <pose>0.29 0 0 0 0 1.5708</pose>
+    </include>
+
+    <!-- bananas: spawn above YOUR table (your earlier working z was 1.05) -->
+    <include>
+      <uri>model://banana</uri>
+      <name>banana</name>
+      <pose>0.5 0.35 1.05 0 1.5 0</pose>
+    </include>
+
+    <include>
+      <uri>model://tuna</uri>
+      <name>tuna</name>
+      <pose>0.25 0.63 1.05 0 -1.5 -2.82</pose>
+    </include>
+
+    <include>
+      <uri>model://box</uri>
+      <name>box</name>
+      <pose>0.11 0.53 1.05 0 -1.5 -1.0</pose>
+    </include>
+
+  </world>
+</sdf>

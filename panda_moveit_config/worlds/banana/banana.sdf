@@ -1,0 +1,70 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <model name="banana">
+    <static>false</static>
+
+    <link name="link">
+
+      <!-- Keep inertial simple and unrotated -->
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.12</mass>
+        <inertia>
+          <ixx>0.0004</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0004</iyy>
+          <iyz>0</iyz>
+          <izz>0.0001</izz>
+        </inertia>
+      </inertial>
+
+      <!-- Collision: rotate mesh ONCE here to make the banana "flat" -->
+      <collision name="collision">
+        <pose>0 0 0 1.5708 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://banana/meshes/nontextured.stl</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.5</mu>
+              <mu2>1.5</mu2>
+            </ode>
+          </friction>
+
+          <contact>
+            <ode>
+              <kp>50000</kp>
+              <kd>100</kd>
+              <min_depth>0.001</min_depth>
+              <max_vel>0.2</max_vel>
+            </ode>
+          </contact>
+        </surface>
+      </collision>
+
+      <!-- Visual: MUST match collision orientation -->
+      <visual name="visual">
+        <pose>0 0 0 1.5708 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://banana/meshes/textured.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      </visual>
+
+      <!-- Optional: helps stop micro sliding/rolling -->
+      <velocity_decay>
+        <linear>0.2</linear>
+        <angular>0.2</angular>
+      </velocity_decay>
+
+    </link>
+  </model>
+</sdf>

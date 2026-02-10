@@ -1,0 +1,18 @@
+# Bridge configuration for Gazebo to ROS 2 communication
+# 1. The Clock (Crucial for controller_manager timing)
+- topic_name: /clock
+  ros_type_name: rosgraph_msgs/msg/Clock
+  gz_type_name: gz.msgs.Clock
+  direction: GZ_TO_ROS
+
+# 2. Joint States (For arm state feedback)
+- topic_name: /joint_states
+  ros_type_name: sensor_msgs/msg/JointState
+  gz_type_name: gz.msgs.Model
+  direction: GZ_TO_ROS
+
+# 3. Image from camera
+- topic_name: /image_raw
+  ros_type_name: sensor_msgs/msg/Image
+  gz_type_name: gz.msgs.Image
+  direction: GZ_TO_ROS

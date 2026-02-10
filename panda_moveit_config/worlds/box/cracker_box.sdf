@@ -1,0 +1,64 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <model name="cracker_box">
+    <static>false</static>
+
+    <link name="link">
+
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.41</mass>
+        <inertia>
+          <ixx>0.0017</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0030</iyy>
+          <iyz>0</iyz>
+          <izz>0.0024</izz>
+        </inertia>
+      </inertial>
+
+      <collision name="collision">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://cracker_box/meshes/nontextured.stl</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.2</mu>
+              <mu2>1.2</mu2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <kp>50000</kp>
+              <kd>50</kd>
+              <min_depth>0.001</min_depth>
+              <max_vel>0.2</max_vel>
+            </ode>
+          </contact>
+        </surface>
+      </collision>
+
+      <visual name="visual">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://cracker_box/meshes/texture.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      </visual>
+
+      <velocity_decay>
+        <linear>0.2</linear>
+        <angular>0.2</angular>
+      </velocity_decay>
+
+    </link>
+  </model>
+</sdf>
