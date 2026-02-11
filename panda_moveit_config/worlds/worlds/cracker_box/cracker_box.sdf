@@ -48,7 +48,7 @@
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://cracker_box/meshes/texture.dae</uri>
+            <uri>model://cracker_box/meshes/textured.dae</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>

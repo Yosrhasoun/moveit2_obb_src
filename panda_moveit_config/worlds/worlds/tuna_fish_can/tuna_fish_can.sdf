@@ -5,6 +5,7 @@
 
     <link name="link">
 
+      <!-- Keep inertial simple and unrotated -->
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.17</mass>
@@ -18,6 +19,9 @@
         </inertia>
       </inertial>
 
+      <!-- If tuna is sideways, rotate BOTH collision+visual the same:
+           <pose>0 0 0 1.5708 0 0</pose>
+      -->
       <collision name="collision">
         <pose>0 0 0 0 0 0</pose>
         <geometry>
@@ -50,7 +54,8 @@
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://tuna_fish_can/meshes/texture.dae</uri>
+            <!-- Make sure this filename matches what's inside tuna_fish_can/meshes -->
+            <uri>model://tuna_fish_can/meshes/textured.dae</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>

@@ -64,20 +64,20 @@
 
     <!-- bananas: spawn above YOUR table (your earlier working z was 1.05) -->
     <include>
-      <uri>model://banana</uri>
-      <name>banana</name>
-      <pose>0.5 0.35 1.05 0 1.5 0</pose>
+      <uri>model://cracker_box</uri>
+      <name>cracker_box1</name>
+      <pose>0.5 0.35 1.15 1.57 0 0</pose>
     </include>
 
     <include>
-      <uri>model://tuna</uri>
-      <name>tuna</name>
+      <uri>model://tuna_fish_can</uri>
+      <name>tuna_fish_can1</name>
       <pose>0.25 0.63 1.05 0 -1.5 -2.82</pose>
     </include>
 
     <include>
-      <uri>model://box</uri>
-      <name>box</name>
+      <uri>model://banana</uri>
+      <name>banana1</name>
       <pose>0.11 0.53 1.05 0 -1.5 -1.0</pose>
     </include>
 
